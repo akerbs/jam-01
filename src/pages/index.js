@@ -7,7 +7,7 @@ import Article from "../components/article"
 const IndexPage = () => (
   <Layout>
     <div>Place for Article</div>
-    <div style={{ background: "rgba(133,26,29 0.5)" }}>
+    <div style={{ backgroundColor: "rgba(133,26,29 0.5)" }}>
       <StaticQuery
         query={graphql`
           {
