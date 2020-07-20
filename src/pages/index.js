@@ -6,32 +6,35 @@ import Article from "../components/article"
 
 const IndexPage = () => (
   <Layout>
-    <StaticQuery
-      query={graphql`
-        {
-          allContentfulArticle {
-            edges {
-              node {
-                id
-                title
-                text {
-                  text
-                }
-                banner {
-                  file {
-                    url
+    <div>Place for Article</div>
+    <div style={{ background: "rgba(133,26,29 0.5)" }}>
+      <StaticQuery
+        query={graphql`
+          {
+            allContentfulArticle {
+              edges {
+                node {
+                  id
+                  title
+                  text {
+                    text
                   }
+                  banner {
+                    file {
+                      url
+                    }
+                  }
+                  publishedAt
                 }
-                publishedAt
               }
             }
           }
+        `}
+        render={({ allContentfulArticle: { edges } }) =>
+          edges.map(({ node }) => <Article key={node.id} content={node} />)
         }
-      `}
-      render={({ allContentfulArticle: { edges } }) =>
-        edges.map(({ node }) => <Article key={node.id} content={node} />)
-      }
-    />
+      />
+    </div>
   </Layout>
 )
 
