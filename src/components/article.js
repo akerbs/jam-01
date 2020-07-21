@@ -12,7 +12,7 @@ const Article = ({
 }) => (
   <div>
     <h2>{title}</h2>
-    <img src={url} alt={title} />
+    <img src={url} alt={title} style={{ maxWidth: 200 }} />
     <p>{text}</p>
     <h5>{publishedAt}</h5>
   </div>
